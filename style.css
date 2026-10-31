@@ -1,0 +1,8 @@
+:root { --bg: #f9f6f0; --text: #1a1a1a; --accent: #4a6741; --quote-bg: #f0ede6; }
+body { max-width: 780px; margin: 2rem auto; padding: 0 1.5rem;
+       font-family: "STSong","SimSun","Noto Serif SC",serif;
+       font-size: 1.05rem; line-height: 1.85; color: var(--text); background: var(--bg); }
+h1, h2, h3, h4, h5, h6 { color: var(--accent); }
+blockquote { background: var(--quote-bg); border-left: 3px solid var(--accent);
+             margin: 1rem 0; padding: 0.6rem 1rem; }
+a { color: var(--accent); }
