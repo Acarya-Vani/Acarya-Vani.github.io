@@ -1,0 +1,88 @@
+/* ── Brand colours ─────────────────────────────────────────── */
+:root {
+  --md-primary-fg-color:        #4a6741;
+  --md-primary-fg-color--light: #6a8f60;
+  --md-primary-fg-color--dark:  #3a5433;
+  --md-accent-fg-color:         #7a5c3a;
+  --md-default-bg-color:        #f9f6f0;
+  --md-code-bg-color:           #f0ede6;
+}
+
+/* Body font — fall back through CJK stacks */
+body, .md-typeset {
+  font-family: "Noto Serif SC", "STSong", "SimSun", "Source Han Serif SC",
+               Georgia, serif !important;
+  line-height: 1.9;
+}
+
+/* Warm background for main content */
+.md-main { background: var(--md-default-bg-color); }
+.md-content { background: var(--md-default-bg-color); }
+.md-sidebar { background: #f2ede5; }
+
+/* ── Watermark centred in content pane ──────────────────────── */
+.md-content__inner::before {
+  content: "内部教导　请勿外传";
+  position: fixed;
+  /* centre within the content column, clear of both sidebars */
+  top: 50%;
+  left: calc(var(--md-sidebar-width, 242px) +
+             (100vw - var(--md-sidebar-width, 242px) - var(--md-sidebar-width, 242px)) / 2);
+  transform: translate(-50%, -50%) rotate(-30deg);
+  font-size: 3.6rem;
+  font-weight: bold;
+  color: #b8945a;
+  opacity: 0.28;
+  pointer-events: none;
+  white-space: nowrap;
+  z-index: 0;
+}
+
+/* ── Disable text selection & context menu (CSS layer) ─────── */
+.md-content, .md-typeset {
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* ── Timestamp bar ─────────────────────────────────────────── */
+.timestamp-bar {
+  display: inline-flex;
+  gap: 1.2rem;
+  background: #ede9e0;
+  border: 1px solid #d5cfc4;
+  border-radius: 4px;
+  padding: .28rem .8rem;
+  font-size: .78rem;
+  color: #7a6a5a;
+  margin: .4rem 0 1.6rem;
+}
+.timestamp-bar strong { color: #4a6741; }
+
+/* ── Blockquote → tcolorbox style ──────────────────────────── */
+.md-typeset blockquote {
+  background: #ede9e0;
+  border-left: 3px solid #4a6741;
+  border-radius: 0 4px 4px 0;
+  padding: .8rem 1.2rem;
+  color: inherit;
+}
+
+/* ── PDF download button in header ─────────────────────────── */
+.md-header__pdf-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  background: rgba(255,255,255,.18);
+  border: 1px solid rgba(255,255,255,.45);
+  border-radius: 4px;
+  color: var(--md-primary-bg-color, #fff);
+  font-size: .76rem;
+  padding: .22rem .7rem;
+  cursor: pointer;
+  margin-right: .6rem;
+  white-space: nowrap;
+  font-family: inherit;
+  text-decoration: none;
+}
+.md-header__pdf-btn:hover { background: rgba(255,255,255,.32); }
+.md-header__pdf-btn:disabled { opacity: .5; cursor: default; }
